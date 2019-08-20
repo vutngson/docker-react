@@ -1,0 +1,9 @@
+sudo: required
+services:
+ - docker
+
+before_install:
+ - docker build -t vutngson/docker-react -f Dockerfile.dev .
+
+script: 
+ - docker run vutngson/docker-react npm run test -- --coverage
